@@ -1,0 +1,474 @@
+<!DOCTYPE hrml>
+
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>ランダム診断</title>
+</head>
+
+<body>
+  <h1 class="title">推しメン診断〜乃木坂編〜</h1>
+    <p class="exp">ルーレットでオススメのメンバーを見つけよう！</p>
+  <div id="canvas_menu1"><canvas id="canvas" width="290" height="350"></canvas><br></div>
+  <div id="canvas_menu2"><canvas id="canvas2" width="600" height="50"></canvas><br></div>
+  <div id="button"><input type="button" value="スタート" onclick="btnStart()" /></div>
+  <div id="button"><input type="button" value="ストップ" onclick="btnStop()" /></div>
+  
+  <style>
+    h1.title {
+      text-align: center;
+      font-size: 400%;
+    }
+    p.exp {
+      text-align: center;
+      font-size: 200%;
+    }
+    body {
+      flex-wrap: wrap;
+      background-image: url("乃木坂ロゴ.jpg" );
+      background-size: 300px 300px;
+      background-repeat: no-repeat;
+    }
+    #canvas_menu1 {
+      width : 290;
+      margin : 10 auto;
+    }
+    #canvas_menu2 {
+      width : 600;
+      margin : 10 auto;
+    }
+    input {
+      width : 100;
+      height : 50;
+    }
+    #button {
+      width : 100;
+      margin : 10 auto;
+    }
+  </style>
+
+  <script>
+    var timer;
+    var cnt;
+    var canvas2 = document.getElementById("canvas2");
+      var ctx = canvas2.getContext("2d");
+      ctx.textBaseline = "center";
+      ctx.textAlign = "center";
+      ctx.font = "40px Century Gothic";
+
+    function btnStart() {
+      cnt = 0;
+      timer = setInterval(changeImage, 25);
+    }
+
+    function btnStop() {
+      clearInterval(timer);
+      if (cnt % 44 == 0) {
+        ctx.fillText("遠藤さくら", 300, 40)
+      }
+      else if (cnt % 44 == 1) {
+        ctx.fillText("林瑠奈", 300, 40)
+      }  
+      else if (cnt % 44 == 2) {
+        ctx.fillText("堀未央奈", 300, 40)
+      }  
+      else if (cnt % 44 == 3) {
+        ctx.fillText("星野みなみ", 300, 40)
+      }  
+      else if (cnt % 44 == 4) {
+        ctx.fillText("伊藤純奈", 300, 40)
+      }  
+      else if (cnt % 44 == 5) {
+        ctx.fillText("岩本蓮加", 300, 40)
+      }  
+      else if (cnt % 44 == 6) {
+        ctx.fillText("賀喜遥香", 300, 40)
+      }  
+      else if (cnt % 44 == 7) {
+        ctx.fillText("北川悠理", 300, 40)
+      }  
+      else if (cnt % 44 == 8) {
+        ctx.fillText("久保史緒里", 300, 40)
+      }  
+      else if (cnt % 44 == 9) {
+        ctx.fillText("松村沙友理", 300, 40)
+      }  
+      else if (cnt % 44 == 10) {
+        ctx.fillText("向井葉月", 300, 40)
+      }  
+      else if (cnt % 44 == 11) {
+        ctx.fillText("中村麗乃", 300, 40)
+      }  
+      else if (cnt % 44 == 12) {
+        ctx.fillText("佐藤楓", 300, 40)
+      }  
+      else if (cnt % 44 == 13) {
+        ctx.fillText("清宮レイ", 300, 40)
+      }  
+      else if (cnt % 44 == 14) {
+        ctx.fillText("新内眞衣", 300, 40)
+      }  
+      else if (cnt % 44 == 15) {
+        ctx.fillText("高山一実", 300, 40)
+      }  
+      else if (cnt % 44 == 16) {
+        ctx.fillText("寺田蘭世", 300, 40)
+      }  
+      else if (cnt % 44 == 17) {
+        ctx.fillText("梅澤美波", 300, 40)
+      }  
+      else if (cnt % 44 == 18) {
+        ctx.fillText("渡辺みり愛", 300, 40)
+      }  
+      else if (cnt % 44 == 19) {
+        ctx.fillText("山下美月", 300, 40)
+      }  
+      else if (cnt % 44 == 20) {
+        ctx.fillText("与田祐希", 300, 40)
+      }  
+      else if (cnt % 44 == 21) {
+        ctx.fillText("弓木奈於", 300, 40)
+      }  
+      else if (cnt % 44 == 22) {
+        ctx.fillText("秋元真夏", 300, 40)
+      }  
+      else if (cnt % 44 == 23) {
+        ctx.fillText("早川聖羅", 300, 40)
+      }  
+      else if (cnt % 44 == 24) {
+        ctx.fillText("樋口日奈", 300, 40)
+      }  
+      else if (cnt % 44 == 25) {
+        ctx.fillText("生田絵梨花", 300, 40)
+      }  
+      else if (cnt % 44 == 26) {
+        ctx.fillText("伊藤理々杏", 300, 40)
+      } 
+      else if (cnt % 44 == 27) {
+        ctx.fillText("掛橋沙耶香", 300, 40)
+      }  
+      else if (cnt % 44 == 28) {
+        ctx.fillText("金川紗耶", 300, 40)
+      }  
+      else if (cnt % 44 == 29) {
+        ctx.fillText("北野日奈子", 300, 40)
+      }  
+      else if (cnt % 44 == 30) {
+        ctx.fillText("黒見明香", 300, 40)
+      }  
+      else if (cnt % 44 == 31) {
+        ctx.fillText("松尾美佑", 300, 40)
+      }  
+      else if (cnt % 44 == 32) {
+        ctx.fillText("中田花奈", 300, 40)
+      }  
+      else if (cnt % 44 == 33) {
+        ctx.fillText("大園桃子", 300, 40)
+      }  
+      else if (cnt % 44 == 34) {
+        ctx.fillText("阪口珠美", 300, 40)
+      }  
+      else if (cnt % 44 == 35) {
+        ctx.fillText("佐藤璃果", 300, 40)
+      }  
+      else if (cnt % 44 == 36) {
+        ctx.fillText("柴田柚菜", 300, 40)
+      }  
+      else if (cnt % 44 == 37) {
+        ctx.fillText("鈴木絢音", 300, 40)
+      }  
+      else if (cnt % 44 == 38) {
+        ctx.fillText("田村真佑", 300, 40)
+      }  
+      else if (cnt % 44 == 39) {
+        ctx.fillText("筒井あやめ", 300, 40)
+      }  
+      else if (cnt % 44 == 40) {
+        ctx.fillText("和田まあや", 300, 40)
+      }  
+      else if (cnt % 44 == 41) {
+        ctx.fillText("矢久保美緒", 300, 40)
+      }  
+      else if (cnt % 44 == 42) {
+        ctx.fillText("山崎伶奈", 300, 40)
+      }  
+      else  {
+        ctx.fillText("吉田綾乃クリスティー", 300, 40) 
+      }
+    }
+
+    function changeImage() {
+      cnt += 1;
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+      var image = new Image();
+      if (cnt % 44 == 0) {
+        image.src = "endousakura_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }
+      else if (cnt % 44 == 1) {
+        image.src = "hayashiruna_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 2) {
+        image.src = "horimiona_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 3) {
+        image.src = "hoshinominami_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 4) {
+        image.src = "itoujunna_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 5) {
+        image.src = "iwamotorenka_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 6) {
+        image.src = "kakiharuka_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 7) {
+        image.src = "kitagawayuri_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 8) {
+        image.src = "kuboshiori_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 9) {
+        image.src = "matsumurasayuri_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 10) {
+        image.src = "mukaihazuki_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 11) {
+        image.src = "nakamurareno_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 12) {
+        image.src = "satoukaede_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 13) {
+        image.src = "seimiyarei_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 14) {
+        image.src = "shinuchimai_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 15) {
+        image.src = "takayamakazumi_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 16) {
+        image.src = "teradaranze_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 17) {
+        image.src = "umezawaminami_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 18) {
+        image.src = "watanabemiria_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 19) {
+        image.src = "yamashitamizuki_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 20) {
+        image.src = "yodayuuki_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 21) {
+        image.src = "yumikinao_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 22) {
+        image.src = "akimotomanatsu_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 23) {
+        image.src = "hayakawaseira_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 24) {
+        image.src = "higuchihina_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 25) {
+        image.src = "ikutaerika_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 26) {
+        image.src = "itouriria_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      } 
+      else if (cnt % 44 == 27) {
+        image.src = "kakehashisayaka_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 28) {
+        image.src = "kanagawasaya_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 29) {
+        image.src = "kitanohinako_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 30) {
+        image.src = "kuromiharuka_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 31) {
+        image.src = "matsuomiyu_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 32) {
+        image.src = "nakadakana_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 33) {
+        image.src = "oozonomomoko_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 34) {
+        image.src = "sakaguchitamami_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 35) {
+        image.src = "satourika_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 36) {
+        image.src = "shibatayuna_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 37) {
+        image.src = "suzukiayane_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 38) {
+        image.src = "tamuramayu_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 39) {
+        image.src = "tsutsuiayame_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 40) {
+        image.src = "wadamaaya_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 41) {
+        image.src = "yakubomio_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else if (cnt % 44 == 42) {
+        image.src = "yamazakirena_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+      else  {
+        image.src = "yoshidaayanochristie_prof.jpg";
+        image.onload = function () {
+          context.drawImage(image, 0, 0);
+       }
+      }  
+
+      // cnt += 1;
+      ctx.clearRect(0, 0, 600, 50)
+    }
+  </script>
+</body>
