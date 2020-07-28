@@ -50,154 +50,73 @@
   <script>
     var timer;
     var cnt;
+    var limit;
     var canvas2 = document.getElementById("canvas2");
       var ctx = canvas2.getContext("2d");
       ctx.textBaseline = "center";
       ctx.textAlign = "center";
       ctx.font = "40px Century Gothic";
+      var namelist = ["遠藤さくら", "林瑠奈", "堀未央奈", "星野みなみ", "伊藤純菜", "岩本蓮加", "賀喜遥香", "北川悠里", "久保史緒里", "松村沙友理", "向井葉月", "中村麗乃", "佐藤楓", "清宮レイ", "新内眞衣", "高山一実", "寺田蘭世", "梅澤美波", "渡辺みり愛", "山下美月", "与田祐希", "弓木奈於", "秋元真夏", "早川聖羅", "樋口日奈", "生田絵梨花", "伊藤理々杏", "掛橋沙耶香", "金川紗耶", "北野日奈子", "黒見明香", "松尾美佑", "中田花奈", "大園桃子", "阪口珠美", "佐藤璃果", "柴田柚菜", "鈴木絢音", "田村真佑", "筒井あやめ", "和田まあや", "矢久保美緒", "山崎伶奈",  "齋藤飛鳥", "吉田綾乃クリスティー"];
+      var imagelist = ["https://github.com/udon0141/roulette/blob/master/endousakura_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/hayashiruna_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/horimiona_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/hoshinominami_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/itoujunna_prof.jpg?raw=true",  
+                      "https://github.com/udon0141/roulette/blob/master/iwamotorenka_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/kakiharuka_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/kitagawayuri_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/kuboshiori_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/matsumurasayuri_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/mukaihazuki_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/nakamurareno_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/satoukaede_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/seimiyarei_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/shinuchimai_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/takayamakazumi_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/teradaranze_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/umezawaminami_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/watanabemiria_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/yamashitamizuki_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/yodayuuki_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/yumikinao_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/akimotomanatsu_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/hayakawaseira_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/higuchihina_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/ikutaerika_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/itouriria_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/kakehashisayaka_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/kanagawasaya_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/kitanohinako_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/kuromiharuka_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/matsuomiyu_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/nakadakana_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/oozonomomoko_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/sakaguchitamami_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/satourika_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/shibatayuna_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/suzukiayane_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/tamuramayu_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/tsutsuiayame_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/wadamaaya_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/yakubomio_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/yamazakirena_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/saitouasuka_prof.jpg?raw=true",
+                      "https://github.com/udon0141/roulette/blob/master/yoshidaayanochristie_prof.jpg?raw=true",
+                      ];
 
     function btnStart() {
       cnt = 0;
-      timer = setInterval(changeImage, 25);
+      limit += 1;
+      if (limit == 1) {
+        timer = setInterval(changeImage, 25);
+      }
     }
 
     function btnStop() {
       clearInterval(timer);
-      if (cnt % 45 == 0) {
-        ctx.fillText("遠藤さくら", 300, 40)
-      }
-      else if (cnt % 45 == 1) {
-        ctx.fillText("林瑠奈", 300, 40)
-      } 
-      else if (cnt % 45 == 2) {
-        ctx.fillText("堀未央奈", 300, 40)
-      }  
-      else if (cnt % 45 == 3) {
-        ctx.fillText("星野みなみ", 300, 40)
-      }  
-      else if (cnt % 45 == 4) {
-        ctx.fillText("伊藤純奈", 300, 40)
-      }  
-      else if (cnt % 45 == 5) {
-        ctx.fillText("岩本蓮加", 300, 40)
-      }  
-      else if (cnt % 45 == 6) {
-        ctx.fillText("賀喜遥香", 300, 40)
-      }  
-      else if (cnt % 45 == 7) {
-        ctx.fillText("北川悠理", 300, 40)
-      }  
-      else if (cnt % 45 == 8) {
-        ctx.fillText("久保史緒里", 300, 40)
-      }  
-      else if (cnt % 45 == 9) {
-        ctx.fillText("松村沙友理", 300, 40)
-      }  
-      else if (cnt % 45 == 10) {
-        ctx.fillText("向井葉月", 300, 40)
-      }  
-      else if (cnt % 45 == 11) {
-        ctx.fillText("中村麗乃", 300, 40)
-      }  
-      else if (cnt % 45 == 12) {
-        ctx.fillText("佐藤楓", 300, 40)
-      }  
-      else if (cnt % 45 == 13) {
-        ctx.fillText("清宮レイ", 300, 40)
-      }  
-      else if (cnt % 45 == 14) {
-        ctx.fillText("新内眞衣", 300, 40)
-      }  
-      else if (cnt % 45 == 15) {
-        ctx.fillText("高山一実", 300, 40)
-      }  
-      else if (cnt % 45 == 16) {
-        ctx.fillText("寺田蘭世", 300, 40)
-      }  
-      else if (cnt % 45 == 17) {
-        ctx.fillText("梅澤美波", 300, 40)
-      }  
-      else if (cnt % 45 == 18) {
-        ctx.fillText("渡辺みり愛", 300, 40)
-      }  
-      else if (cnt % 45 == 19) {
-        ctx.fillText("山下美月", 300, 40)
-      }  
-      else if (cnt % 45 == 20) {
-        ctx.fillText("与田祐希", 300, 40)
-      }  
-      else if (cnt % 45 == 21) {
-        ctx.fillText("弓木奈於", 300, 40)
-      }  
-      else if (cnt % 45 == 22) {
-        ctx.fillText("秋元真夏", 300, 40)
-      } 
-      else if (cnt % 45 == 23) {
-        ctx.fillText("早川聖羅", 300, 40)
-      }  
-      else if (cnt % 45 == 24) {
-        ctx.fillText("樋口日奈", 300, 40)
-      }  
-      else if (cnt % 45 == 25) {
-        ctx.fillText("生田絵梨花", 300, 40)
-      }  
-      else if (cnt % 45 == 26) {
-        ctx.fillText("伊藤理々杏", 300, 40)
-      } 
-      else if (cnt % 45 == 27) {
-        ctx.fillText("掛橋沙耶香", 300, 40)
-      }  
-      else if (cnt % 45 == 28) {
-        ctx.fillText("金川紗耶", 300, 40)
-      }  
-      else if (cnt % 45 == 29) {
-        ctx.fillText("北野日奈子", 300, 40)
-      } 
-      else if (cnt % 45 == 30) {
-        ctx.fillText("黒見明香", 300, 40)
-      }  
-      else if (cnt % 45 == 31) {
-        ctx.fillText("松尾美佑", 300, 40)
-      }  
-      else if (cnt % 45 == 32) {
-        ctx.fillText("中田花奈", 300, 40)
-      }  
-      else if (cnt % 45 == 33) {
-        ctx.fillText("大園桃子", 300, 40)
-      }  
-      else if (cnt % 45 == 34) {
-        ctx.fillText("阪口珠美", 300, 40)
-      }  
-      else if (cnt % 45 == 35) {
-        ctx.fillText("佐藤璃果", 300, 40)
-      }  
-      else if (cnt % 45 == 36) {
-        ctx.fillText("柴田柚菜", 300, 40)
-      }  
-      else if (cnt % 45 == 37) {
-        ctx.fillText("鈴木絢音", 300, 40)
-      }  
-      else if (cnt % 45 == 38) {
-        ctx.fillText("田村真佑", 300, 40)
-      }  
-      else if (cnt % 45 == 39) {
-        ctx.fillText("筒井あやめ", 300, 40)
-      }  
-      else if (cnt % 45 == 40) {
-        ctx.fillText("和田まあや", 300, 40)
-      }  
-      else if (cnt % 45 == 41) {
-        ctx.fillText("矢久保美緒", 300, 40)
-      } 
-      else if (cnt % 45 == 42) {
-        ctx.fillText("山崎伶奈", 300, 40)
-      } 
-      else if (cnt % 45 == 4) {
-        ctx.fillText("齋藤飛鳥", 300, 40)
-      }
-      else  {
-        ctx.fillText("吉田綾乃クリスティー", 300, 40) 
-      }
+      var person = new Person(cnt % 45);
+      ctx.fillText(person.name, 300, 40);
+      limit = 0;
     }
 
     function changeImage() {
@@ -205,279 +124,20 @@
       var canvas = document.getElementById("canvas");
       var context = canvas.getContext("2d");
       var image = new Image();
-      if (cnt % 45 == 0) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/endousakura_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
+      var pic = new Picture(cnt % 45);
+      image.src = pic.add
+      image.onload = function () {
+        context.drawImage(image, 0, 0);
       }
-      else if (cnt % 45 == 1) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/hayashiruna_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 2) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/horimiona_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 3) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/hoshinominami_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 4) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/itoujunna_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 5) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/iwamotorenka_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 6) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/kakiharuka_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 7) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/kitagawayuri_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 8) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/kuboshiori_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 9) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/matsumurasayuri_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 10) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/mukaihazuki_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 11) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/nakamurareno_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 12) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/satoukaede_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 13) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/seimiyarei_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 14) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/shinuchimai_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 15) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/takayamakazumi_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 16) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/teradaranze_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 17) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/umezawaminami_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 18) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/watanabemiria_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 19) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/yamashitamizuki_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 20) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/yodayuuki_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 21) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/yumikinao_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 22) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/akimotomanatsu_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 23) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/hayakawaseira_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 24) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/higuchihina_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 25) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/ikutaerika_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 26) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/itouriria_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      } 
-      else if (cnt % 45 == 27) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/kakehashisayaka_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 28) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/kanagawasaya_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 29) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/kitanohinako_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 30) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/kuromiharuka_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 31) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/matsuomiyu_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 32) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/nakadakana_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 33) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/oozonomomoko_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 34) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/sakaguchitamami_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 35) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/satourika_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 36) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/shibatayuna_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 37) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/suzukiayane_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 38) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/tamuramayu_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 39) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/tsutsuiayame_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 40) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/wadamaaya_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 41) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/yakubomio_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-      else if (cnt % 45 == 42) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/yamazakirena_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-        }
-      }
-      else if (cnt % 45 == 43) {
-        image.src = "https://github.com/udon0141/roulette/blob/master/saitouasuka_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-        }
-      }  
-      else  {
-        image.src = "https://github.com/udon0141/roulette/blob/master/yoshidaayanochristie_prof.jpg?raw=true";
-        image.onload = function () {
-          context.drawImage(image, 0, 0);
-       }
-      }  
-
-      // cnt += 1;
       ctx.clearRect(0, 0, 600, 50)
+    }
+    
+    function Person(i) {
+      this.name = namelist[i]
+    }
+    
+    function Picture(i) {
+      this.add = imagelist[i]
     }
   </script>
 </body>
